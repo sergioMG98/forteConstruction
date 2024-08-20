@@ -1,0 +1,122 @@
+.aboutPage {
+    width: 100vw;
+    height: fit-content;
+    overflow: hidden;
+
+    .about {
+        width: 100%;
+        min-height: calc(90vh - 100px);
+        height: fit-content;
+        padding: 40px;
+        
+        
+        .summary {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+
+            strong {
+                color: dodgerblue;
+                font-size: 1.6rem;
+            }
+        }
+    }
+
+    .timeline {
+        background-color: #F3F3F3;
+        padding: 40px;
+        position: relative;
+
+        .line {
+            position: absolute;
+            top: 200px;
+            bottom: 186px;
+            left: 50%;
+            width: 2px;
+            background-color: black;
+            /* height: 90%; */
+        }
+
+        .itemContainer {
+            width: 100%;
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+             gap: 20px;   
+
+            .item {
+                height: fit-content;
+                width: 45%;
+                border: 2px solid black;
+                padding: 40px;
+                position: relative;
+                transition: 0.5s ease;
+                transform: translateX(-400%);
+                border-radius: 10px;
+                
+    
+                &:nth-child(even) {
+                    transform: translateX(400%);
+
+                    .bubble {
+                        background-color: black;
+                        left: calc(-11% - 21px);
+                    }
+                }
+                &:hover {
+                    background-color: dodgerblue;
+
+                    .card {
+                        h2,
+                        p {
+                            color: white;
+                        }
+                    }
+                }
+
+                .bubble {
+                    height: 40px;
+                    width: 40px;
+                    border-radius: 50%;
+                    background-color: black;
+                    position: absolute;
+                    top: calc(50% - 20px); 
+                    left: calc(112% - 21px);
+                }
+
+                .card {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+
+                    h2 {
+                        &::first-letter {
+                            text-transform: capitalize;
+                        }
+                    }
+                    p {
+                        line-height: 1.6rem;
+                    }
+                    
+                }
+            }
+
+            .item.show {
+                transform: translate(0%);
+                transition: 0.5s ease;
+
+                &:nth-child(even) {
+                    transform: translateX(122%);
+
+                    .bubble {
+                        background-color: black;
+                        left: calc(-11% - 21px);
+                    }
+                }
+            }
+        }
+
+
+    }
+
+}

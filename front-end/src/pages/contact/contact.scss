@@ -1,0 +1,118 @@
+.contactPage {
+    main {
+        padding: 40px;
+
+        h1 {
+            height: fit-content;
+            padding: 10px 0;
+            font-size: 10rem;
+            text-align: center;
+
+            &::first-letter {
+                text-transform: capitalize;
+            }
+        }
+
+        .formulaireContainer {
+            height: fit-content;
+
+
+            form {
+                height: fit-content;
+                display: flex;
+                flex-wrap: wrap;
+
+                .contactInputContainer {
+                    height: 60px;
+                    width: 50%;
+                    text-align: center;
+                    align-content: center;
+
+                    input {
+                        height: 40px;
+                        width: 50%;
+                        border: none;
+                        border-bottom: 4px solid black;
+                        padding: 0 10px;
+                        outline: none;
+                        background-color: transparent;
+                    }
+                }
+
+                .contactTextareaContainer {
+                    height: fit-content;
+                    width: 100%;
+                    text-align: center;
+                    align-content: center;
+
+                    textarea {
+                        height: 150px;
+                        width: 75%;
+                        border: none;
+                        border-bottom: 4px solid black;
+                        padding: 20px 10px;
+                        margin-top: 20px;
+                        outline: none;
+                        resize: none;
+                        line-height: 1.8rem;
+                        background-color: transparent;
+                    }
+                }
+
+                .formBtn {
+                    height: 60px;
+                    width: 100%;
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    
+
+                    button {
+                        height: 40px;
+                        width: 100px;
+                        padding: 0 10px;
+                        margin-left: 180px;
+                        border: none;
+                        background-color: transparent;
+                        align-content: center;
+
+                        &::first-letter {
+                            text-transform: capitalize;
+                        }
+
+                        &:hover {
+                            
+                            span {
+                                width: 69%;
+                                display: block;
+                                height: 3px;
+                                position: absolute;
+                                left: 305px;
+                                top: 50%;
+                                background-color: dodgerblue;
+                                animation: spanLeftToRight 1 ease linear;
+                            }
+
+                            @media spanLeftToRight {
+                                from {
+                                    width: 0%;
+                                }
+                                to {
+                                    width: 67%;
+                                }
+                            }
+                        }
+
+                        span {
+                            width: 0%;
+                            transition: 1s;
+                        }
+
+                        
+                    }
+                }
+            }
+
+        }
+    }
+}

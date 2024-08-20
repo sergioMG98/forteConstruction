@@ -1,0 +1,93 @@
+.navbar {
+    position: relative;
+    /* background-color: #A5A7AA; */
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    transition: 0.5s;
+
+    .navbar_logo {
+        height: 60px;
+        width: 300px;
+        text-align: start;
+        align-content: center;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+    }
+
+    .burgerMenu {
+        display: flex;
+        justify-content: center;
+        align-content: space-around;
+        flex-wrap: wrap;
+        height: 60px;
+        width: 60px;
+
+        span {
+            height: 4px;
+            width: 100%;
+            background-color: black;
+            transition: 0.5s;
+        }
+    }
+
+    .navbar_links {
+        display: none;
+    }
+}
+.navbar.active {
+    height: 100vh;
+    transition: 0.5s;
+    background-color: white;
+
+    .burgerMenu {
+        
+        span {
+            height: 4px;
+            width: 100%;
+            background-color: black;
+            transition: 0.5s;
+
+            &:nth-child(1) {
+                transform: rotate(43deg) translate(15px, 15px);
+            }
+            &:nth-child(2) {
+                background-color: transparent;
+            }
+            &:nth-child(3) {
+                transform: rotate(-43deg) translate(12px, -15px);
+            }
+        }
+        
+    }
+
+    .navbar_links {
+        position: absolute;
+        bottom: 20px;
+        height: 80vh;
+        width: calc(100% - 100px);
+        display: flex;
+        flex-direction: column;
+
+        a {
+            height: 80px;
+            align-content: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 1.8rem;
+            transition: 0.5s;
+            color: black;
+
+            &:hover {
+                padding-left: 40px;
+                transition: 0.5s;
+                color: dodgerblue;
+                font-size: 2.5rem;
+            }
+        }
+        
+    }
+}

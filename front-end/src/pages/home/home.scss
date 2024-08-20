@@ -1,0 +1,46 @@
+.homePage {
+    height: fit-content;
+    width: 100vw;
+
+    header {
+        position: absolute;
+    }
+
+    header.navbarFixed {
+        position: fixed;
+        background-color: white;
+    }
+
+    main {
+        width: 100%;
+        height: fit-content;
+
+        .slidersContainer {
+            width: 100%;
+            height: 90vh;
+            background-color: crimson;
+        }
+
+
+        .presentation {
+            width: 100%;
+            height: fit-content;
+            padding: 80px 40px;
+            font-size: 1.2rem;
+            background-color: #F3F3F3;
+
+            .summary {
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+
+                strong {
+                    color: dodgerblue;
+                    font-size: 1.6rem;
+                }
+            }
+
+        }
+    }
+
+}

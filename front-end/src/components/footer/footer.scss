@@ -1,0 +1,54 @@
+.footer {
+    height: fit-content;
+    width: 100vw;
+    padding: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    .utilityLinks {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        a {
+            text-decoration: none;
+            color: #777;
+
+            &:hover {
+                color: dodgerblue;
+            }
+        }
+    }
+
+    .socialMediaContainer {
+        height: 100%;
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+
+        .links {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+
+            a {
+                display: block;
+                height: 40px;
+                width: 40px;
+    
+                img {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+    
+            &:hover a:not(:hover) {
+                filter: grayscale(1);
+            }
+        }
+
+    }
+}
