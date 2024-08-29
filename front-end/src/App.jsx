@@ -4,6 +4,7 @@ import Achievement from './pages/achivements/achievement';
 import Contact from './pages/contact/contact';
 import Home from './pages/home/Home'
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Project from './pages/project/project';
 
 function App() {
 
@@ -23,6 +24,10 @@ function App() {
     {
       path: "/contact",
       element: <Contact/>
+    }, 
+    {
+      path: "/project",
+      element: <Project/>
     }
   ])
 

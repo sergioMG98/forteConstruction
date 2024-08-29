@@ -1,0 +1,34 @@
+.projectPage {
+    main {
+        height: fit-content;
+        padding: 60px 0;
+        section {
+            height: fit-content;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            
+            img {
+                height: 400px;
+                width: 50%;
+            }
+
+            .sliderPicturesContainer {
+                width: 50vw;
+                height: 500px;
+
+                .wordContainer {
+                    height: 100px;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    font-size: 1.9rem;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
