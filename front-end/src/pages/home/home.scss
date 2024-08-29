@@ -4,6 +4,7 @@
 
     header {
         position: absolute;
+        z-index: 99;
     }
 
     header.navbarFixed {
@@ -18,7 +19,43 @@
         .slidersContainer {
             width: 100%;
             height: 90vh;
-            background-color: crimson;
+            position: relative;
+
+            &:hover {
+                .left, 
+                .right {
+                    background-color: white;
+                    color: black;
+                    font-size: 1.2rem;
+                    font-weight: 900;
+                    opacity: 0.5;
+                }
+            }
+
+            img {
+                height: 100%;
+                width: 100%;
+            }
+
+            .left,
+            .right {
+                position: absolute;
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+                z-index: 5;
+                top: 50%;
+                background-color: transparent;
+                color: transparent;
+                border: none;
+            }
+            .left {
+                left: 10px;
+            }
+            .right {
+                right: 10px;
+            }
+
         }
 
 

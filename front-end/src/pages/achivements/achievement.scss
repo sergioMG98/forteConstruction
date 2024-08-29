@@ -1,0 +1,26 @@
+.achievementPage {
+
+    main {
+        section {
+            .responsiveMasonry {
+                .masonry {
+                    &:hover {
+                        img {
+                            &:not(:hover) {
+                                filter: grayscale(60%);
+                            }
+                        }
+                        
+                    }
+                    img {
+                        min-height: 400px;
+                        max-height: 600px;
+                    }
+
+                }
+            }
+            
+        }
+    }
+}
+

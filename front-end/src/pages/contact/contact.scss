@@ -1,6 +1,39 @@
 .contactPage {
     main {
         padding: 40px;
+        position: relative;
+
+        .notification {
+            display: none;
+        }
+        .notification.active {
+            position: absolute;
+            top: 0;
+            background-color: crimson;
+            width: 100vw;
+            height: 40px;
+            transform: translateX(-40px);
+            padding: 0 40px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .notificationMessage {
+                height: 100%;
+                width: 80%;
+                color: white;
+                align-content: center;
+            }
+
+            button {
+                height: 100%;
+                width: 40px;
+                background-color: transparent;
+                border: none;
+                font-size: 1.3rem;
+                color: white;
+            }
+        }
 
         h1 {
             height: fit-content;
@@ -113,6 +146,13 @@
                 }
             }
 
+        }
+
+        .mapContainer {
+            margin-top: 40px;
+            height: 500px;
+            width: 100vw;
+            transform: translateX(-40px);
         }
     }
 }

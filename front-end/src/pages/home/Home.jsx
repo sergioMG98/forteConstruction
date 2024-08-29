@@ -1,13 +1,17 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../../components/navbar/navbar";
 import './home.scss';
 import Footer from "../../components/footer/footer";
 
 export default function Home(){
 
+    const [homePicture, setHomePictures] = useState();
+    const [pictureNumber, setPictureNumber ] = useState(0);
+
     let sizePage;
     let page;
 
+    // navbar effect
     window.onscroll = function() {
         // taille visible de l'ecran
         let sizeWindowHeight = window.innerHeight;
@@ -23,12 +27,52 @@ export default function Home(){
         }
     }
 
+    // récupération des images
+    const getPicturesProject = async() => {
+        
+        try {
+            const response = await fetch('http://127.0.0.1:8000/api/homePicture');
+            const data = await response.json();
+
+            if (data.status == 200) {
+                setHomePictures(data.pictures);
+            }
+        } catch (error) {
+            console.log("recup error", error);
+        }
+    }
+
+    // scroll les images
+    const slidePictures = (value) => {
+        if (value == 'left') {
+            if (pictureNumber == 0) {
+                setPictureNumber(homePicture.length - 1);
+            } else {
+                setPictureNumber(pictureNumber - 1);
+            }
+            
+        } else {
+
+            if (pictureNumber == homePicture.length - 1) {
+                setPictureNumber(0);
+            } else {
+                setPictureNumber(pictureNumber + 1);
+            }
+        }
+    }
+
+    // récupére les donnée obligatoir pour l'effet de la navbar
     useEffect(() => {
         page = document.querySelector('.homePage');
         sizePage = page.scrollHeight;
-    })
+    });
 
+    // active fonction 
+    useEffect(() => {
+        getPicturesProject();
+    }, []);
 
+    
     return (
         <div className="homePage">
             <header>
@@ -37,7 +81,15 @@ export default function Home(){
 
             <main>
                 <section className="slidersContainer">
-                    <h1>slider</h1>
+                    {
+                        homePicture != undefined ?
+                            <img src={homePicture[pictureNumber]} alt="" />
+                        : null
+                    }
+
+                    <button type="button" className="left" onClick={() => slidePictures("left")} >{"<"}</button>
+                    <button type="button" className="right" onClick={() => slidePictures("right")}>{">"}</button>
+                    
                 </section>
 
                 <section className="presentation">
@@ -47,8 +99,6 @@ export default function Home(){
                         <p>Soucieuse d’apporter à ses clients un service de qualité, notre équipe de professionnels met en permanence son expérience et son savoir-faire pour vous conseiller et vous accompagner dans la réalisation de tous projets et travaux neufs ou de rénovation allant des plus simples aux plus complexes.</p>
                         <p>Evoluant essentiellement auprès d’une clientèle internationale exigeante, nous les accompagnons durant toutes les phases de développement et de réalisation de leur projet, et entretenons une relation de confiance et un suivi qui va bien au-delà de la livraison.</p>
                         <p>La satisfaction du travail bien fait est notre priorité afin que vos rêves n’aient pas de limites.</p>
-
-
                     </div>
                 </section>
             </main>
