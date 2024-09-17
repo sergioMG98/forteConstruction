@@ -1,0 +1,105 @@
+.navbarConnected {
+    height: 100%;
+    width: 100%;
+    background-color: darkcyan;
+
+    &:hover {
+        nav {
+            .links,
+            .logoutLink {
+                a {
+                    padding: 20px;
+                    span {
+                        display: flex;
+                        animation: myAnim .2s linear 0s 1 normal forwards;
+                    }
+                    
+                    &:hover {
+                        img {
+                            filter: brightness(0) saturate(100%) invert(34%) sepia(89%) saturate(810%) hue-rotate(141deg) brightness(97%) contrast(103%);
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+    @keyframes myAnim {
+        0% {
+            opacity: 0;
+            transform: translateX(-250px);
+        }
+    
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    nav {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-sizing: border-box;
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            
+            a {
+                padding: 20px 10px;
+                text-decoration: none;
+                color: white;
+                font-size: 1.4rem;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                span {
+                    display: none;
+                }
+                
+                img {
+                    height: 25px;
+                    width: 25px;
+                    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7457%) hue-rotate(184deg) brightness(96%) contrast(104%);
+                }
+
+                &:hover {
+                    background-color: white;
+                    color: darkcyan;
+
+                }
+            }
+        }
+        .logoutLink {
+
+            a {
+                display: block;
+                width: 100%;
+                padding: 20px 10px;
+                text-decoration: none;
+                font-size: 1.4rem;
+                color: red;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                span {
+                    display: none;
+                }
+                img {
+                    height: 25px;
+                    width: 25px;
+                    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7457%) hue-rotate(184deg) brightness(96%) contrast(104%);
+                }
+
+                &:hover {
+                    background-color: white;
+                    
+                } 
+            }
+        }
+    }
+}

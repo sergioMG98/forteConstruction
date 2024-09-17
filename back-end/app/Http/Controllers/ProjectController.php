@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use App\Models\Picture;
 
+use App\Models\Client;
+use App\Models\CustomerCompany;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -136,5 +139,77 @@ class ProjectController extends Controller
             ]);
         }
     
+    }
+
+    /* ============== protected function ==================== */
+
+    public function getAllProject() {
+
+        try {
+            $projects = Project::all();
+
+            $projectsFiltred = [];
+    
+            foreach ($projects as $key => $project) {
+               
+                $clients = Client::where('id', $project->client_id)
+                    ->get();
+                $customerCompany = CustomerCompany::where('id', $project->customer_company_id )
+                    ->get();
+    
+                $object = (object) array (
+                    "id" => $project->id,
+                    "project_name" => $project->project_name,
+                    "project_manager" => $project->project_manager,
+                    "project_start" => $project->project_start,
+                    "project_end" => $project->project_end,
+                    "money_obtained" => $project->money_obtained,
+                    "project_price" => $project->project_price,
+                    "project_cost" => $project->project_cost,
+                    "profits" => $project->profits,
+                    "project_status" => $project->project_status,
+                    "project_nature" => $project->project_nature,
+                    "project_address" => $project->project_address,
+                    "comment" => $project->comment,
+                    "reference_project" => $project->reference_project,
+                    // customer data
+                    "client_id" => $project->client_id,
+                    "customer_lastname" => $clients[0]->lastname,
+                    "customer_firstname" => $clients[0]->firstname,
+                    "customer_phone" => $clients[0]->phone,
+                    "customer_email" => $clients[0]->email,
+                    // customer company data
+                    "customer_company_id" =>  $project->customer_company_id,
+                    "name" => $customerCompany[0]->name,
+                    "adresse" => $customerCompany[0]->adresse,
+                    "siret" => $customerCompany[0]->siret,
+                );
+               
+                array_push($projectsFiltred, $object);
+            }
+            
+            if (count($projectsFiltred) != 0) {
+                
+                return response()->json([
+                    'status' => 200,
+                    'projects' => $projectsFiltred
+                ]);
+
+            } else {
+                return response()->json([
+                    'status' => 404,
+                    'message' => "Projects not found!"
+                ]);
+            }
+            
+           
+
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => 500,
+                'error' => $th
+            ]);
+        }
+
     }
 }

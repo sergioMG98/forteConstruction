@@ -36,6 +36,8 @@ export default function Footer() {
 
             <div className="informationWeb">
                 <h4>information sur le site</h4>
+
+                <Link to={'/login'}>connection</Link>
             </div>
         </div>
     )

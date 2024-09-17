@@ -1,0 +1,440 @@
+$dimGray: #666666;
+$raisinBlack: #282828;
+$battleshipGray : #848484;
+
+.connectedHomePage {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+
+    header {
+        background-color: darkcyan;
+        height: 100vh;
+        width: 50px;
+        position: absolute;
+        transition: .2s linear;
+
+        &:hover {
+            width: 200px;
+            transition: .2s linear;
+        }
+    }
+
+    main {
+        min-height: 100vh;
+        height: fit-content;
+        width: calc(100vw - 50px);
+        background-color: $dimGray;
+        margin-left: 50px;
+        section {
+            
+            .detailsProjectsContainer {
+                height: 50vh;
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                padding: 20px;
+                gap: 20px;
+
+                .box {
+                    height: 45%;
+                    border-radius: 16px;
+                    background-color: $raisinBlack;
+                    color: white;
+                    padding: 10px;
+
+                    .title {
+                        height: 20%;
+                        align-content: center;
+                        
+                        h2{
+                            font-weight: 200;
+                            font-size: 1.3rem;
+                        }
+                    }
+                }
+
+                .projectManagerContainer {
+                    width: calc(60% - 10px);
+                    
+
+                    .manager {
+                        width: 100%;
+                        height: 80%;
+
+                        ul {
+                            height: 100%;
+                            width: 100%;
+                            overflow-x: auto;
+                            display: flex;
+                            align-items: center;
+                            flex-direction: row;
+                            gap: 10px;
+
+                            li {
+                                list-style: none;
+                                height: 60%;
+                                min-width: 150px;
+                                width: fit-content;
+                                padding: 10px;
+                                text-align: center;
+                                align-content: center;
+                                background-color: darkcyan;
+                                font-size: 1.4rem;
+
+                                &:hover {
+                                    background-color: white;
+                                    color: darkcyan;
+                                }
+                            }
+
+                            li.selected {
+                                list-style: none;
+                                height: 60%;
+                                min-width: 150px;
+                                width: fit-content;
+                                padding: 10px;
+                                text-align: center;
+                                align-content: center;
+                                background-color: black;
+                                font-size: 1.4rem;
+
+                                &:hover {
+                                    background-color: white;
+                                    color: darkcyan;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .dateContainer {
+                    width: calc(40% - 10px);
+
+                    .rangeSliderContainer {
+                        height: 80%;
+                        width: 100%;
+
+                        .dateBoxContainer {
+                            height: 50%;
+                            width: 100%;
+                            display: flex;
+                            justify-content: space-around;
+                            align-items: center;
+
+                            .dateBox {
+                                padding: 10px;
+                                border: 1px solid $battleshipGray;
+                            }
+                        }
+
+                        .controlDate {
+                            height: 50%;
+                            width: 100%;
+                            position: relative;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+                            .slider {
+                                position: relative;
+                                height: 5px;
+                                width: 90%;
+                                border-radius: 5px;
+    
+                                .progress {
+                                    height: 100%;
+                                    position: absolute;
+                                    left: 0%;
+                                    right: 0%;
+                                    border-radius: 5px;
+                                    background: linear-gradient(
+                                        to right, $dimGray 0%, #008b8b 0%, #008b8b 100%, $dimGray 100%); 
+                                }
+                            }
+                            .range-input {
+                                position: absolute;
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                width: 90%;
+                                height: 100%;
+                                
+
+                                input {
+                                    position: absolute;
+                                    height: 5px;
+                                    width: 100%;
+                                    -webkit-appearance: none;
+                                    -moz-appearance: none;
+                                    appearance: none;
+                                    outline: none;
+                                    background-color: transparent;
+                                    pointer-events: none;
+
+                                    &::-webkit-slider-thumb {
+                                        -webkit-appearance: none;
+                                        height: 17px;
+                                        width: 17px;
+                                        background-color: #008b8b;
+                                        cursor: pointer;
+                                        pointer-events: auto;
+                                        border-radius: 50%;
+                                    }
+                                }
+                            }
+                        }
+
+                        
+                    }
+                }
+
+                .moneyContainer {
+                    width: calc(40% - 10px);
+
+                    .money {
+                        width: 100%;
+                        height: 80%;
+                        border-radius: 0%;
+                        display: flex;
+                        flex-direction: row;
+
+                        .descriptif {
+                            height: 100%;
+                            width: 60%;
+                            display: flex;
+                            flex-direction: column;
+
+                            .descri {
+                                width: 100%;
+                                height: calc(100% / 3);
+                                display: flex;
+                                align-items: center;
+                                gap: 10px;
+                                color: $battleshipGray;
+
+                                &:nth-child(2) {
+                                    span {
+                                        background-color: greenyellow;
+                                    }
+                                }
+
+                                &:nth-child(3) {
+                                    span {
+                                        background-color: salmon;
+                                    }
+                                }
+
+                                span {
+                                    height: 10px;
+                                    width: 10px;
+                                    background-color: dodgerblue;
+                                    display: block;
+                                    border-radius: 50%;
+
+                                    
+                                }
+                            }
+                        }
+
+                        .array {
+                            height: 100%;
+                            width: 40%;
+                            background-color: #848484;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: flex-end;
+                            justify-content: center;
+
+                            .column {
+                                height: var(--percent);
+                                width: 30px;
+                                background-color: dodgerblue;
+
+                                &:nth-child(2){
+                                    height: var(--percent);
+                                    background-color: greenyellow;
+                                    
+                                }
+                                &:nth-child(3){
+                                    height: var(--percent);
+                                    background-color: salmon; 
+                                }
+
+                            }
+
+                            
+
+                            
+                        }
+                    }
+                }
+
+                .profitsContainer {
+                    width: calc(20% - 20px);
+
+                    .profits {
+                        height: 60%;
+                        text-align: center;
+                        align-content: center;
+                        font-size: 2rem;
+                        font-weight: 600;
+                    }
+                }
+                .statusContainer {
+                    width: calc(40% - 10px);
+
+                    .graphic {
+                        height: 80%;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-around;
+                        align-items: center;
+
+                        .chart {
+                            width: 100px;
+                            height: 100px;
+                            border-radius: 50%;
+                            background-image: conic-gradient(
+                                from 360deg,
+                                dodgerblue 0% var(--blue),
+                                greenyellow var(--blue) calc(var(--blue) + var(--green)), 
+                                salmon  calc(var(--blue) + var(--green)) 100%,
+                            );
+                        }
+
+                        .descriptif {
+                            height: 100%;
+                            width: calc(80% - 100px);
+                            display: flex;
+                            flex-direction: column;
+
+                            .descri {
+                                width: 100%;
+                                height: calc(100% / 3);
+                                display: flex;
+                                align-items: center;
+                                gap: 10px;
+                                color: $battleshipGray;
+
+                                &:hover {
+                                    background-color: darkcyan;
+                                    color: white;
+                                }
+
+                                &:nth-child(2) {
+                                    span {
+                                        background-color: greenyellow;
+                                    }
+                                }
+
+                                &:nth-child(3) {
+                                    span {
+                                        background-color: salmon;
+                                    }
+                                }
+
+                                span {
+                                    height: 10px;
+                                    width: 10px;
+                                    background-color: dodgerblue;
+                                    display: block;
+                                    border-radius: 50%;
+
+                                    
+                                }
+                            }
+
+                            .descri.selected {
+                                color: white;
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            .listProjectsContainler {
+                height: calc(50vh - 20px);
+                width: calc(100% - 40px);
+                background-color: $raisinBlack;
+                margin: 0 20px 20px 20px;
+                border-radius: 16px;
+                overflow: hidden;
+                padding: 10px;
+
+                .barInformation {
+                    height: 50px;
+                    width: 100%;
+                    
+                    ul {
+                        height: 100%;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: row;
+                        list-style: none;
+                        color: white;
+
+                        li {
+                            height: 100%;
+                            width: calc(100% / 9);
+                            align-content: center;
+                        }
+                    }
+                    
+                    
+                }
+
+                .listContainer {
+                    height: calc(100% - 50px);
+                    display: flex;
+                    flex-direction: column;
+                    overflow-y: auto;
+                    
+                    .nothingMessage {
+                        height: 50px;
+                        width: 100%;
+                        color: white;
+                        background-color: #008b8b;
+                        text-align: center;
+                        align-content: center;
+                        text-transform: uppercase;
+                    }
+
+                    .list {
+                        height: 30px;
+                        width: calc(100%);
+                        background-color: $dimGray;
+                    
+                        ul {
+                            height: 30px;
+                            width: 100%;
+                            display: flex;
+                            flex-direction: row;
+                            list-style: none;
+                            color: white;
+
+                            li {
+                                height: 100%;
+                                width: calc(100% / 9);
+                                align-content: center;
+                                overflow-x: auto;
+                            }
+
+                        }
+
+                        &:nth-child(even) {
+                            background-color: #848484;
+                        }
+
+                        &:hover {
+                            background-color: darkcyan;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}

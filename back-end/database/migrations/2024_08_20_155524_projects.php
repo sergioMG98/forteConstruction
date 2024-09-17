@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Client;
+use App\Models\CustomerCompany;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,14 +17,22 @@ return new class extends Migration
         //
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('address');
-            $table->string('customer'); // client
-            $table->float('estimate'); // devis
-            $table->float('production_price');// prox du developpement
-            $table->float('benefit'); // benefice
-            $table->string('start'); // debut des travaux
-            $table->string('end'); // fin des travaux 
+            $table->foreignId('client_id')->constrained();
+            $table->foreignId('customer_company_id')->constrained();
+            $table->string('project_name'); // nom du projet
+            $table->string('project_manager'); // chef de project
+            $table->date('project_start');  // debut des travaux
+            $table->date('project_end'); // fin des travaux 
+            $table->integer('money_obtained'); // argent obtenu
+            $table->integer('project_price'); // prix du projet
+            $table->integer('project_cost'); // cout du projet
+            $table->integer('profits'); // bénéfices du projet
+            $table->string('project_status'); // status du projet
+            $table->string('project_nature'); // nature du project
+            $table->string('project_address'); // adresse du projet
+            $table->text('comment')->nullable(); // commentaire sur le projet
             $table->string('reference_project'); // reference du projet
+            $table->timestamps();
         });
 
         Schema::create('pictures', function(Blueprint $table) {
@@ -40,5 +51,8 @@ return new class extends Migration
     public function down(): void
     {
         //
+
+        Schema::dropIfExists('projects');
+        Schema::dropIfExists('pictures');
     }
 };
