@@ -1,0 +1,117 @@
+$dimGray: #666666;
+$raisinBlack: #282828;
+$battleshipGray : #848484;
+
+.connectedProfilPage {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+
+    header {
+        height: 100vh;
+        width: 50px;
+        position: absolute;
+        transition: .2s linear;
+
+        &:hover {
+            width: 200px;
+            transition: .2s linear;
+        }
+    }
+
+    main {
+        min-height: 100vh;
+        height: fit-content;
+        width: calc(100vw - 50px);
+        background-color: $dimGray;
+        margin-left: 50px;
+        padding: 20px;  
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        section {
+            margin-top: 20px;
+            width: 100%;
+            height: calc(100% - (20px + 46px));
+
+            form {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                gap: 20px;
+                
+                .inputContainer {
+                    background-color: $raisinBlack;
+                    height: 100px;
+                    width: calc(50% - 20px);
+                    border-radius: 16px;
+                    padding: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    label {
+                        color: darkcyan;
+                    }
+                    input {
+                        height: 40px;
+                        border: none;
+                        border-bottom: 2px solid darkcyan;
+                        background-color: transparent;
+                        outline: none;
+                        color: white;
+                    }
+                }
+
+                .btn {
+                    height: 100px;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+
+                    button {
+                        border: none;
+                        background-color: transparent;
+                        color: white;
+                        font-size: 1.2rem;
+                        text-transform: uppercase;
+                        
+                    }
+
+                    span {
+                        height: 2px;  
+                        background-color: darkcyan;
+                        margin-left: 20px;
+                        width: calc(0% - 110px); 
+                        
+                    }
+
+                    &:hover {
+                        span {
+                            animation: myAnim 2s ease 0s 1 normal;
+                            width: calc(100% - 110px); 
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes myAnim {
+	0% {
+		width: calc(0% - 110px); 
+	}
+
+	100% {
+		width: calc(100% - 110px); 
+	}
+}
