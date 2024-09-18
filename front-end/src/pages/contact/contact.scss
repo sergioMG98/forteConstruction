@@ -1,4 +1,15 @@
 .contactPage {
+
+    header {
+        position: absolute;
+        z-index: 99;
+    }
+
+    header.navbarFixed {
+        position: fixed;
+        background-color: white;
+    }
+
     main {
         padding: 40px;
         position: relative;
